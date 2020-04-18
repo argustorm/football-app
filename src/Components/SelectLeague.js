@@ -4,10 +4,6 @@ import { Select } from 'antd';
 const API_KEY = '7a51512089c4475a827e9e1888683c76';
 const { Option } = Select;
 
-function onChange(value) {
-  console.log(`selected ${value}`);
-}
-
 
 
 export class SelectLeague extends Component {
@@ -15,6 +11,11 @@ export class SelectLeague extends Component {
     
     state = {
         competitions: []
+    }
+    
+    onChange = (value) => {
+        console.log(`selected ${value}`);
+        this.props.idCompetition(value)
     }
     
     componentDidMount() {
@@ -30,19 +31,24 @@ export class SelectLeague extends Component {
       })
     }
 
+  
+            
+    
+
     _renderCompetitions = () => {
-        const {competitions} = this.state
-        console.log(competitions)
-        console.log('CountryId: '+this.props.idCountry)
+        const {competitions} = this.state 
         const mapeo = competitions.map
             (competition => {
                 if(competition.area.id === this.props.idCountry) 
                 {
                     return (
-                            <Option key={competition.id}>
+                            <Option value={competition.id} key={competition.id}>
                                 {competition.name}
                             </Option>
+                            
                             )
+                } else {
+                    return null
                 }
                     
                 })
@@ -56,16 +62,15 @@ export class SelectLeague extends Component {
                 <Select
                     showSearch
                     style={{ width: 200 }}
-                    placeholder="Select a person"
+                    placeholder="Select a League"
                     optionFilterProp="children"
-                    onChange={onChange}
+                    onChange={this.onChange}
                     filterOption={(input, option) =>
                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }
                 >
                     {this._renderCompetitions()}
                 </Select>
-                <p>{this.props.idCountry}</p>
             </div>
                 
         )

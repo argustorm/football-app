@@ -43,7 +43,7 @@ export class SelectCountry extends Component {
             <Select
         showSearch
         style={{ width: 200 }}
-        placeholder="Select a person"
+        placeholder="Select a Country"
         optionFilterProp="children"
         onChange={this.onChange}
         filterOption={(input, option) =>
