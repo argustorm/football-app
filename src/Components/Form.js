@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { SelectCountry } from './SelectCountry';
 import { SelectLeague } from './SelectLeague';
-import { Content } from './Content';
+import { PointerTeams } from './PointerTeams';
 
 export class FormComponent extends Component {
     
@@ -9,7 +9,8 @@ export class FormComponent extends Component {
     state = {
         id: '',
         idCompetition: '',
-        receiveIdCompetition: false
+        receiveIdCompetition: false,
+        idTeam: ''
     }
 
 
@@ -21,6 +22,10 @@ export class FormComponent extends Component {
         this.setState({idCompetition, receiveIdCompetition: true})
     }
 
+    _handleIdTeam = (idTeam) => {
+        this.setState({idTeam})
+        console.log(this.state.idTeam)
+    }
 
     render() {
         return (
@@ -36,7 +41,7 @@ export class FormComponent extends Component {
 
                 <div>
                     {this.state.receiveIdCompetition
-                        ? <Content idCompetition={this.state.idCompetition}/>
+                        ? <PointerTeams idCompetition={this.state.idCompetition} idTeam={this._handleIdTeam}/>
                         : null}
                 </div>
             </form>
