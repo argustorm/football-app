@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { FormComponent } from './Components/Form';
+import { FormComponent } from './Pages/Form';
 
 
 // Styles
@@ -15,7 +15,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <FormComponent/>
+      <FormComponent/>      
     </div>
   );
 }

@@ -44,3 +44,24 @@
     margin:2px;
     cursor: pointer;
 }
+
+
+
+.divCardTeam {
+  
+  width: 20%;
+}
+
+.divTableTeam {
+  
+  width: 60%;
+}
+
+.info-team {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  
+}
+
+
